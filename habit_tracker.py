@@ -5,7 +5,7 @@ from datetime import date
 
 HABITS_FILE = "habits_data.json"
 ACTIVITY_FILE = "activity_data.json"
-NAME = "Chung"
+NAME = "JohnDoe"
 
 
 def load_habits() -> dict:

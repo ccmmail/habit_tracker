@@ -1,0 +1,44 @@
+[
+    {
+        "progress_id": 1,
+        "habit_id": 2,
+        "date": "2024-10-04",
+        "notes": "150lb"
+    },
+    {
+        "progress_id": 2,
+        "habit_id": 3,
+        "date": "2024-11-13",
+        "notes": "\u4f60\u597d"
+    },
+    {
+        "progress_id": 3,
+        "habit_id": 3,
+        "date": "2024-12-01",
+        "notes": "\u806a\u660e"
+    },
+    {
+        "progress_id": 4,
+        "habit_id": 1,
+        "date": "2024-12-04",
+        "notes": "vo2max baby!"
+    },
+    {
+        "progress_id": 5,
+        "habit_id": 4,
+        "date": "2024-12-07",
+        "notes": "disthebest"
+    },
+    {
+        "progress_id": 6,
+        "habit_id": 4,
+        "date": "2024-12-13",
+        "notes": "recruiter"
+    },
+    {
+        "progress_id": 7,
+        "habit_id": 1,
+        "date": "2024-12-13",
+        "notes": "8 miles"
+    }
+]

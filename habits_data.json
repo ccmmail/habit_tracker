@@ -1,0 +1,26 @@
+[
+    {
+      "habit_id": 1,
+      "name": "Cardio",
+      "frequency": "weekly",
+      "goal": 3
+    },
+    {
+      "habit_id": 2,
+      "name": "Strength training",
+      "frequency": "weekly",
+      "goal": 3
+    },
+    {
+      "habit_id": 3,
+      "name": "Mandarin",
+      "frequency": "weekly",
+      "goal": 7
+    },
+    {
+      "habit_id": 4,
+      "name": "Social Connection",
+      "frequency": "monthly",
+      "goal": 2
+    }
+]

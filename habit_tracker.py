@@ -1,67 +1,98 @@
-"""Interactive app to track progress on habits."""
+"""Interactive app to track progress on custom habits."""
 
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import json
 from datetime import date
 
-HABITS_FILE = "habits_data.json"
-ACTIVITY_FILE = "activity_data.json"
-NAME = "JohnDoe"
+HABITS_FILE: str = "habits_data.json"
+ACTIVITY_FILE: str = "activity_data.json"
+
+app = Flask(__name__)
 
 
 def load_habits() -> dict:
-    """Load list of habits from local file."""
+    """Load the list of habits from a JSON file.
+
+    Returns:
+        List of habits as dictionaries.
+    """
     with open(HABITS_FILE, 'r') as file:
-        data = json.load(file)
-    return data
+        return json.load(file)
 
 
-def present_habits(habits: dict):
-    """Display list of habits being worked on."""
-    print("These are your habits!")
-    for index, habit in enumerate(habits):
-        print(f"{index+1}. {habit['name']} -- {habit['goal']} times per {habit['frequency']}")
-    print("8: show all activity")
-    print("9: exit")
+def load_activity() -> list:
+    """Load the progress entries from a JSON file.
+
+    Returns:
+        List of progress entries as dictionaries.
+    """
+    with open(ACTIVITY_FILE, 'r') as file:
+        return json.load(file)
 
 
-def log_activity(habit_id: int, notes=None):
-    """Timestamp and Log a specific activity into local file."""
-    with open(ACTIVITY_FILE, "r+") as file:
-        data = json.load(file)
-        new_entry = {"progress_id": len(data) + 1
-                     "habit_id": habit_id,
-                     "date": date.today().strftime("%Y-%m-%d"),
-                     "notes": notes
-                     }
-        data.append(new_entry)
-        file.seek(0)
+def save_activity(data: list) -> None:
+    """Save the progress data to a JSON file.
+
+    Args:
+        data: The progress data to save as a list of dictionaries.
+    """
+    with open(ACTIVITY_FILE, 'w') as file:
         json.dump(data, file, indent=4)
 
 
-def activity_log(habits: dict):
-    """Show the log of all activity to date."""
-    with open(ACTIVITY_FILE, "r") as file:
-        data = json.load(file)
-        print("Activity log:")
-        for entry in data:
-            habit_index = entry['habit_id'] - 1
-            print(f"{entry['date']} - {habits[habit_index]['name']} - {entry['notes']}")
+@app.route('/')
+def home() -> str:
+    """Render the home page with the list of habits.
 
-def main():
-    """Present and process user choices."""
+    Returns:
+        The rendered HTML of the home page.
+    """
     habits = load_habits()
-    while True:
-        present_habits(habits)
-        habit_id = int(input("Which habit did we work on today? "))
-        if habit_id < 8:
-            notes = input("Anything to note? ")
-            log_activity(habit_id, notes)
-        elif habit_id == 8:
-            activity_log(habits)
-        elif habit_id == 9:
-            break
+    return render_template('index.html', habits=habits)
 
+
+@app.route('/log', methods=['POST'])
+def log_habit() -> str:
+    """Log a new habit entry with optional notes.
+
+    Returns:
+        A redirect to the home page.
+    """
+    habit_id = int(request.form['habit_id'])
+    notes = request.form.get('notes', '').strip()
+    date = request.form.get('date')
+    activity = load_activity()
+    new_entry = {
+        "progress_id": len(activity) + 1,
+        "habit_id": habit_id,
+        "date": date,
+        "notes": notes
+    }
+    activity.append(new_entry)
+    save_activity(activity)
+    return redirect(url_for('home'))
+
+
+@app.route('/activity')
+def show_activity_log() -> str:
+    """Render the activity log page with logged habit entries.
+
+    Returns:
+        The rendered HTML of the activity log page.
+    """
+    habits = load_habits()
+    activity = load_activity()
+    habit_map = {habit['habit_id']: habit['habit_name'] for habit in habits}
+    log_entries = [
+        {
+            "date": entry['date'],
+            "habit": habit_map.get(entry['habit_id'], "Unknown Habit"),
+            "notes": entry.get('notes', 'None')
+        }
+        for entry in activity
+    ]
+    return render_template('activity.html', activity=log_entries)
 
 
 if __name__ == "__main__":
-    main()
+    app.run(host="localhost", port=5001, debug=True)

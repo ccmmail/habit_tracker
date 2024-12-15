@@ -1,26 +1,26 @@
 [
     {
       "habit_id": 1,
-      "name": "Cardio",
-      "frequency": "weekly",
+      "habit_name": "Cardio",
+      "frequency": "week",
       "goal": 3
     },
     {
       "habit_id": 2,
-      "name": "Strength training",
-      "frequency": "weekly",
+      "habit_name": "Strength training",
+      "frequency": "week",
       "goal": 3
     },
     {
       "habit_id": 3,
-      "name": "Mandarin",
-      "frequency": "weekly",
+      "habit_name": "Mandarin",
+      "frequency": "week",
       "goal": 7
     },
     {
       "habit_id": 4,
-      "name": "Social Connection",
-      "frequency": "monthly",
+      "habit_name": "Social Connection",
+      "frequency": "month",
       "goal": 2
     }
 ]

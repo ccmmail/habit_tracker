@@ -40,5 +40,53 @@
         "habit_id": 1,
         "date": "2024-12-13",
         "notes": "8 miles"
+    },
+    {
+        "progress_id": 8,
+        "habit_id": 1,
+        "date": "2024-12-15",
+        "notes": "hard session"
+    },
+    {
+        "progress_id": 9,
+        "habit_id": 1,
+        "date": "2024-12-15",
+        "notes": "tracking with apple watch"
+    },
+    {
+        "progress_id": 10,
+        "habit_id": 4,
+        "date": "2024-12-15",
+        "notes": "fam"
+    },
+    {
+        "progress_id": 11,
+        "habit_id": 3,
+        "date": "2024-12-15",
+        "notes": ""
+    },
+    {
+        "progress_id": 12,
+        "habit_id": 4,
+        "date": "2024-12-15",
+        "notes": "ChatGPT is my friend"
+    },
+    {
+        "progress_id": 13,
+        "habit_id": 4,
+        "date": "2024-12-15",
+        "notes": "Date should be 12/01"
+    },
+    {
+        "progress_id": 14,
+        "habit_id": 2,
+        "date": "2024-12-15",
+        "notes": "6 pull-ups!"
+    },
+    {
+        "progress_id": 15,
+        "habit_id": 3,
+        "date": "2024-11-15",
+        "notes": "should be 11/15"
     }
 ]

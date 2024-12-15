@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            padding-bottom: 5px;
+        }
+        h2 {
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+        ul, ol {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        input[type="date"], textarea, button {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="date"] {
+            width: 30ch;
+            margin-bottom: 20px; /* Add extra whitespace below the date */
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .activity-log {
+            margin-top: 20px;
+        }
+        .filter-options {
+            margin-top: 10px;
+        }
+        .filter-options li {
+            margin: 5px 0;
+        }
+        .button-group {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const dateInput = document.getElementById("date");
+            if (!dateInput.value) {
+                const today = new Date().toISOString().split("T")[0];
+                dateInput.value = today;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome Chung!</h1>
+
+    <h2>Log an Activity</h2>
+    <form action="/log" method="POST">
+        <ul>
+            {% for habit in habits %}
+            <li>
+                <label>
+                    <input type="radio" name="habit_id" value="{{ loop.index }}" required>
+                    {{ habit.habit_name }} - {{ habit.goal }} times per {{ habit.frequency }}
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="notes">Notes (Optional):</label>
+        <textarea id="notes" name="notes" rows="3" cols="30"></textarea>
+
+        <button type="submit">Log Activity</button>
+    </form>
+
+    <h2>Show Activities to Date</h2>
+    <div class="activity-log">
+        <form action="/activity" method="GET">
+            <ul class="filter-options">
+                <li>
+                    <label>
+                        <input type="radio" name="filter" value="all" checked> ALL habits
+                    </label>
+                </li>
+                {% for habit in habits %}
+                <li>
+                    <label>
+                        <input type="radio" name="filter" value="{{ habit.habit_name | lower }}"> {{ habit.habit_name }} only
+                    </label>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <div class="button-group">
+                <button type="submit">Show Activity</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

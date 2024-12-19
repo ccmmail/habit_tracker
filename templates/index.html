@@ -52,16 +52,16 @@
         .button-group {
             margin-top: 10px;
         }
+        .success {
+            color: green;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const dateInput = document.getElementById("date");
             if (!dateInput.value) {
-                const today = new Date(); // Get the current local date and time
-                const year = today.getFullYear();
-                const month = String(today.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
-                const day = String(today.getDate()).padStart(2, '0');
-                dateInput.value = `${year}-${month}-${day}`; // Format as YYYY-MM-DD
+                const today = new Date().toISOString().split("T")[0];
+                dateInput.value = today;
             }
         });
     </script>
@@ -76,7 +76,7 @@
             <li>
                 <label>
                     <input type="radio" name="habit_id" value="{{ loop.index }}" required>
-                    <b>{{ habit.habit_name }}</b>
+                    {{ habit.habit_name }} - {{ habit.goal }} times per {{ habit.frequency }}
                 </label>
             </li>
             {% endfor %}
@@ -85,16 +85,26 @@
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
 
-        <label for="hanzi">汉字:</label>
-        <input type="text" id="hanzi" name="hanzi">
+        <label for="hanzi">汉字 (Mandarin only):</label>
+        <input type="text" id="hanzi" name="hanzi" placeholder="Enter 汉字">
 
-        <label for="pinyin">Pinyin:</label>
-        <input type="text" id="pinyin" name="pinyin">
+        <label for="pinyin">Pinyin (Mandarin only):</label>
+        <input type="text" id="pinyin" name="pinyin" placeholder="Enter Pinyin">
 
-        <label for="notes">Notes:</label>
+        <label for="notes">Notes (Optional):</label>
         <textarea id="notes" name="notes" rows="3" cols="30"></textarea>
 
         <button type="submit">Log Activity</button>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul>
+              {% for category, message in messages %}
+                <li class="success">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
     </form>
 
     <h2>Show Activities to Date</h2>
@@ -109,7 +119,7 @@
                 {% for habit in habits %}
                 <li>
                     <label>
-                        <input type="radio" name="filter" value="{{ habit.habit_name }}"> {{ habit.habit_name }} only
+                        <input type="radio" name="filter" value="{{ habit.habit_name | lower }}"> {{ habit.habit_name }} only
                     </label>
                 </li>
                 {% endfor %}

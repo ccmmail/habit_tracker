@@ -1,8 +1,7 @@
-"""Interactive app to track progress on custom habits."""
+"""Webapp to track progress on custom habits."""
 
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for
 import json
-from datetime import date
 
 HABITS_FILE: str = "habits_data.json"
 ACTIVITY_FILE: str = "activity_data.json"

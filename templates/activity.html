@@ -12,6 +12,8 @@
             <tr>
                 <th>Date</th>
                 <th>Habit</th>
+                <th>汉字</th>
+                <th>Pinyin</th>
                 <th>Notes</th>
             </tr>
         </thead>
@@ -20,6 +22,8 @@
             <tr>
                 <td>{{ entry.date }}</td>
                 <td>{{ entry.habit }}</td>
+                <td><a href="https://translate.google.com/?sl=zh-CN&tl=en&text={{ entry.hanzi }}" target="_blank">{{ entry.hanzi }}</a></td>
+                <td>{{ entry.pinyin }}</td>
                 <td>{{ entry.notes }}</td>
             </tr>
             {% endfor %}

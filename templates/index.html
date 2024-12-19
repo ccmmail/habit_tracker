@@ -23,13 +23,11 @@
         li {
             margin: 10px 0;
         }
-        input[type="date"], textarea, button {
+        input[type="text"], input[type="date"], textarea, button {
             display: block;
             margin-top: 10px;
-        }
-        input[type="date"] {
             width: 30ch;
-            margin-bottom: 20px; /* Add extra whitespace below the date */
+            margin-bottom: 20px; /* Add extra whitespace below */
         }
         button {
             padding: 10px 15px;
@@ -75,7 +73,7 @@
             <li>
                 <label>
                     <input type="radio" name="habit_id" value="{{ loop.index }}" required>
-                    {{ habit.habit_name }} - {{ habit.goal }} times per {{ habit.frequency }}
+                    <b>{{ habit.habit_name }}</b>
                 </label>
             </li>
             {% endfor %}
@@ -84,7 +82,13 @@
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
 
-        <label for="notes">Notes (Optional):</label>
+        <label for="hanzi">汉字:</label>
+        <input type="text" id="hanzi" name="hanzi">
+
+        <label for="pinyin">Pinyin:</label>
+        <input type="text" id="pinyin" name="pinyin">
+
+        <label for="notes">Notes:</label>
         <textarea id="notes" name="notes" rows="3" cols="30"></textarea>
 
         <button type="submit">Log Activity</button>

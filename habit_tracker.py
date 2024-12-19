@@ -57,14 +57,18 @@ def log_habit() -> str:
     Returns:
         A redirect to the home page.
     """
-    habit_id = int(request.form['habit_id'])
-    notes = request.form.get('notes', '').strip()
+    habit_id = int(request.form.get('habit_id'))
     date = request.form.get('date')
+    hanzi = request.form.get('hanzi', '')
+    pinyin = request.form.get('pinyin', '')
+    notes = request.form.get('notes', '').strip()
     activity = load_activity()
     new_entry = {
         "progress_id": len(activity) + 1,
         "habit_id": habit_id,
         "date": date,
+        "hanzi": hanzi,
+        "pinyin": pinyin,
         "notes": notes
     }
     activity.append(new_entry)
@@ -86,7 +90,9 @@ def show_activity_log() -> str:
         {
             "date": entry['date'],
             "habit": habit_map.get(entry['habit_id'], "Unknown Habit"),
-            "notes": entry.get('notes', 'None')
+            "hanzi": entry.get('hanzi', ''),
+            "pinyin": entry.get('pinyin', ''),
+            "notes": entry.get('notes', '')
         }
         for entry in activity
     ]

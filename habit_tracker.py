@@ -86,16 +86,29 @@ def show_activity_log() -> str:
     habits = load_habits()
     activity = load_activity()
     habit_map = {habit['habit_id']: habit['habit_name'] for habit in habits}
-    log_entries = [
-        {
-            "date": entry['date'],
-            "habit": habit_map.get(entry['habit_id'], "Unknown Habit"),
-            "hanzi": entry.get('hanzi', ''),
-            "pinyin": entry.get('pinyin', ''),
-            "notes": entry.get('notes', '')
-        }
-        for entry in activity
-    ]
+    filter = request.args["filter"]
+    if filter == "all":
+        log_entries = [
+            {
+                "date": entry['date'],
+                "habit": habit_map.get(entry['habit_id'], "(unknown)"),
+                "hanzi": entry.get('hanzi', ''),
+                "pinyin": entry.get('pinyin', ''),
+                "notes": entry.get('notes', '')
+            }
+            for entry in activity
+        ]
+    else:
+        log_entries = [
+            {
+                "date": entry['date'],
+                "habit": habit_map.get(entry['habit_id'], "(unknown)"),
+                "hanzi": entry.get('hanzi', ''),
+                "pinyin": entry.get('pinyin', ''),
+                "notes": entry.get('notes', '')
+            }
+            for entry in activity if habit_map.get(entry['habit_id'], "(unknown)") == filter
+        ]
     return render_template('activity.html', activity=log_entries)
 
 

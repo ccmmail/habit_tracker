@@ -109,7 +109,7 @@
                 {% for habit in habits %}
                 <li>
                     <label>
-                        <input type="radio" name="filter" value="{{ habit.habit_name | lower }}"> {{ habit.habit_name }} only
+                        <input type="radio" name="filter" value="{{ habit.habit_name }}"> {{ habit.habit_name }} only
                     </label>
                 </li>
                 {% endfor %}

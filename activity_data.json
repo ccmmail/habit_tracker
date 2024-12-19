@@ -1,108 +1,58 @@
 [
     {
         "progress_id": 1,
-        "habit_id": 2,
-        "date": "2024-10-04",
-        "notes": "150lb"
-    },
-    {
-        "progress_id": 2,
-        "habit_id": 3,
-        "date": "2024-11-13",
-        "hanzi": "\u4f60\u597d",
-        "pinyin": "n\u01d0 h\u01ceo"
-    },
-    {
-        "progress_id": 3,
-        "habit_id": 3,
-        "date": "2024-12-01",
-        "hanzi": "\u806a\u660e",
-        "pinyin": "c\u014dng ming"
-    },
-    {
-        "progress_id": 4,
-        "habit_id": 1,
-        "date": "2024-12-04",
-        "notes": "vo2max baby!"
-    },
-    {
-        "progress_id": 5,
-        "habit_id": 4,
-        "date": "2024-12-07",
-        "notes": "disthebest"
-    },
-    {
-        "progress_id": 6,
-        "habit_id": 4,
-        "date": "2024-12-13",
-        "notes": "recruiter"
-    },
-    {
-        "progress_id": 7,
-        "habit_id": 1,
-        "date": "2024-12-13",
-        "notes": "8 miles"
+        "habit_id": "",
+        "date": "2024-12-11",
+        "notes": "Hello world! ChatGPT is my friend!"
     },
     {
         "progress_id": 8,
-        "habit_id": 1,
-        "date": "2024-12-15",
-        "notes": "hard session"
-    },
-    {
-        "progress_id": 9,
-        "habit_id": 1,
-        "date": "2024-12-15",
-        "notes": "tracking with apple watch"
-    },
-    {
-        "progress_id": 10,
         "habit_id": 4,
-        "date": "2024-12-15",
-        "notes": "fam"
+        "date": "2024-12-11",
+        "notes": "spencer stuart / Ares Capital. *follow up*"
     },
     {
         "progress_id": 11,
-        "habit_id": 3,
-        "date": "2024-12-15",
-        "notes": ""
+        "habit_id": 4,
+        "date": "2024-12-12",
+        "notes": "alissa back"
     },
     {
         "progress_id": 12,
-        "habit_id": 4,
-        "date": "2024-12-15",
-        "notes": "ChatGPT is my friend"
+        "habit_id": 2,
+        "date": "2024-12-13",
+        "notes": ""
     },
     {
         "progress_id": 13,
-        "habit_id": 4,
-        "date": "2024-12-15",
-        "notes": "Date should be 12/01"
+        "habit_id": 1,
+        "date": "2024-12-14",
+        "notes": ""
     },
     {
         "progress_id": 14,
         "habit_id": 2,
         "date": "2024-12-15",
-        "notes": "6 pull-ups!"
+        "notes": "6 chin-ups!"
     },
     {
         "progress_id": 15,
-        "habit_id": 3,
-        "date": "2024-11-15",
-        "notes": "should be 11/15"
+        "habit_id": 1,
+        "date": "2024-12-17",
+        "notes": "5m. Fremont Older."
     },
     {
         "progress_id": 16,
         "habit_id": 2,
-        "date": "2024-12-19",
-        "notes": "3 pulls up"
+        "date": "2024-12-18",
+        "notes": "felt tougher"
     },
     {
         "progress_id": 17,
         "habit_id": 3,
-        "date": "2024-12-19",
-        "hanzi": "\u6c49\u5b57",
-        "pinyin": "hanzi",
+        "date": "2024-12-18",
+        "hanzi": "\u806a\u660e",
+        "pinyin": "c\u014dng ming",
         "notes": "added Chinese vocab list"
     },
     {
@@ -111,6 +61,6 @@
         "date": "2024-12-19",
         "hanzi": "",
         "pinyin": "",
-        "notes": "the ghost in the machine"
+        "notes": "jaden back"
     }
 ]

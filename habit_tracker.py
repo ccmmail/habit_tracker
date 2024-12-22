@@ -2,13 +2,13 @@
 
 from flask import Flask, render_template, request, redirect, url_for, flash
 import json
+import os
 
 HABITS_FILE: str = "habits_data.json"
 ACTIVITY_FILE: str = "activity_data.json"
 
 app = Flask(__name__)
-app.secret_key = "1234"
-
+app.secret_key = os.getenv('SECRET_KEY', 'default_dev_key')
 
 def load_habits() -> dict:
     """Load the list of habits from a JSON file.

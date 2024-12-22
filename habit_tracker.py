@@ -63,8 +63,6 @@ def log_habit() -> str:
         "progress_id": len(activity) + 1,
         "habit_id": int(request.form.get('habit_id')),
         "date": request.form.get('date'),
-        "hanzi": request.form.get('hanzi', ''),
-        "pinyin": request.form.get('pinyin', ''),
         "notes": request.form.get('notes', '').strip()
     }
     activity.append(new_entry)
@@ -88,8 +86,6 @@ def show_activity_log() -> str:
         {
             "date": entry['date'],
             "habit": habit_map.get(entry['habit_id'], "(unknown)"),
-            "hanzi": entry.get('hanzi', ''),
-            "pinyin": entry.get('pinyin', ''),
             "notes": entry.get('notes', '')
         }
         for entry in activity

@@ -10,17 +10,5 @@
       "habit_name": "Strength training",
       "frequency": "week",
       "goal": 3
-    },
-    {
-      "habit_id": 3,
-      "habit_name": "Mandarin",
-      "frequency": "week",
-      "goal": 7
-    },
-    {
-      "habit_id": 4,
-      "habit_name": "Social connection",
-      "frequency": "month",
-      "goal": 2
     }
 ]

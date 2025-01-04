@@ -76,7 +76,7 @@
             <li>
                 <label>
                     <input type="radio" name="habit_id" value="{{ loop.index }}" required>
-                    {{ habit.habit_name }} - {{ habit.goal }} times per {{ habit.frequency }}
+                    {{ habit.habit_name }} - {{ habit.activity_in_period }} in last {{ habit.goal_period }}d ({{ habit.goal_attainment }}% of {{ habit.goal_target}})
                 </label>
             </li>
             {% endfor %}
@@ -113,7 +113,7 @@
                 {% for habit in habits %}
                 <li>
                     <label>
-                        <input type="radio" name="filter" value="{{ habit.habit_name | lower }}"> {{ habit.habit_name }} only
+                        <input type="radio" name="filter" value="{{ habit.habit_name }}"> {{ habit.habit_name }} only
                     </label>
                 </li>
                 {% endfor %}

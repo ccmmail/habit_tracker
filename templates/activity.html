@@ -6,6 +6,35 @@
     <title>Activity Log</title>
 </head>
 <body>
+    <h1>Habit Summary</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th rowspan="2">Habit</th>
+                <th rowspan="2">Goal</th>
+                <th colspan="4">Period</th>
+            </tr>
+            <tr>
+                <th>Period -1</th>
+                <th>Period -2</th>
+                <th>Period -3</th>
+                <th>Period -4</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for habit in habits %}
+            <tr>
+                <td>{{ habit.habit_name }}</td>
+                <td> {{ habit.goal_target }} in {{ habit.goal_period }}d </td>
+                <td> {{ habit.period_minus_one_activity }} ({{ habit.period_minus_one_attainment }}%) </td>
+                <td> {{ habit.period_minus_two_activity }} ({{ habit.period_minus_two_attainment }}%) </td>
+                <td> {{ habit.period_minus_three_activity }} ({{ habit.period_minus_three_attainment }}%) </td>
+                <td> {{ habit.period_minus_four_activity }} ({{ habit.period_minus_four_attainment }}%) </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
     <h1>Activity Log</h1>
     <table border="1">
         <thead>

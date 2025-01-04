@@ -76,7 +76,7 @@
             <li>
                 <label>
                     <input type="radio" name="habit_id" value="{{ loop.index }}" required>
-                    {{ habit.habit_name }} - {{ habit.activity_in_period }} in last {{ habit.goal_period }} days ({{ habit.goal_attainment }}% of {{ habit.goal_target}})
+                    {{ habit.habit_name }} - {{ habit.period_minus_one_activity }} in last {{ habit.goal_period }} days ({{ habit.period_minus_one_attainment }}% of {{ habit.goal_target}})
                 </label>
             </li>
             {% endfor %}

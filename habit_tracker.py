@@ -1,4 +1,4 @@
-"""Webapp to track progress on custom habits."""
+"""Webapp to track rolling activity and attainment on custom habits."""
 
 from flask import Flask, render_template, request, redirect, url_for, flash
 import json
@@ -24,7 +24,7 @@ def load_habits() -> list:
 
 
 def save_habits(habits: list) -> None:
-    """Save te habits data to a JSON file.
+    """Save habits data to a JSON file.
 
     Args:
         habits: list of habits, with each habit as a dictionary.
@@ -47,51 +47,83 @@ def save_activity(activity: list) -> None:
     """Save the progress data to a JSON file.
 
     Args:
-        activity: List of progress entries, with each entry a dictionary.
+        activity: List of activity entries, with each entry a dictionary.
     """
     with open(ACTIVITY_FILE, 'w') as file:
         json.dump(activity, file, indent=4)
 
 
-def update_habit_activity(activity: list) -> None:
-    """Update activity count within goal window for each habit.
+def update_habits_activity(activity: list) -> None:
+    """Update activity count and attainment percentage for all habits.
 
     Args:
         activity: list of activity entries in reverse chrono order.
     """
     habits = load_habits()
     for habit in habits:
-        activity_in_period, goal_attainment = count_habit_activity(habit, activity)
-        habit["activity_in_period"] = activity_in_period
-        habit["goal_attainment"] = goal_attainment
+        habit.update(count_habit_activity(habit, activity))
     save_habits(habits)
 
 
-def count_habit_activity(habit: dict, activity: list) -> tuple:
+def count_habit_activity(habit: dict, activity: list) -> dict:
     """Count activity and goal attainment of given habit within time period.
 
     Args:
-        habit: dictionary of habit to be counted.
+        habit: dictionary of habit to be counted from activity list.
         activity: list of activity entries in reverse chrono order.
 
     Returns:
-        Tuple of count of habit activity and integer of goal attainment.
+        habit dictionary updated with count of habit activity and
+        integer of goal attainment.
     """
-    count = 0
-    start_window = datetime.now() - timedelta(days=habit["goal_period"])
+    habit["period_minus_one_activity"] = 0
+    habit["period_minus_one_attainment"] = 0
+    habit["period_minus_two_activity"] = 0
+    habit["period_minus_two_attainment"] = 0
+    habit["period_minus_three_activity"] = 0
+    habit["period_minus_three_attainment"] = 0
+    habit["period_minus_four_activity"] = 0
+    habit["period_minus_four_attainment"] = 0
+    end_period = datetime.now()
+    start_period_minus_one = datetime.now() - timedelta(days=habit["goal_period"])
+    start_period_minus_two = datetime.now() - timedelta(days=habit["goal_period"] * 2)
+    start_period_minus_three = datetime.now() - timedelta(days=habit["goal_period"] * 3)
+    start_period_minus_four = datetime.now() - timedelta(days=habit["goal_period"] * 4)
     for entry in activity:
-        if datetime.strptime(entry["date"], "%Y-%m-%d") > start_window:
+        entry_date = datetime.strptime(entry["date"], "%Y-%m-%d")
+        if start_period_minus_one < entry_date <= end_period:
             if entry["habit_id"] == habit["habit_id"]:
-                count += 1
-        else:
+                habit["period_minus_one_activity"] += 1
+        if start_period_minus_two < entry_date <= start_period_minus_one:
+            if entry["habit_id"] == habit["habit_id"]:
+                habit["period_minus_two_activity"] += 1
+        if start_period_minus_three < entry_date <= start_period_minus_two:
+            if entry["habit_id"] == habit["habit_id"]:
+                habit["period_minus_three_activity"] += 1
+        if start_period_minus_four < entry_date <= start_period_minus_three:
+            if entry["habit_id"] == habit["habit_id"]:
+                habit["period_minus_four_activity"] += 1
+        if entry_date <= start_period_minus_three:
             break
-    goal_attainment = math.ceil(count / habit["goal_activity"] * 100)
-    return count, goal_attainment
+    habit["period_minus_one_attainment"] = math.ceil(habit["period_minus_one_activity"]
+                                                     / habit["goal_target"] * 100)
+    habit["period_minus_two_attainment"] = math.ceil(habit["period_minus_two_activity"]
+                                                     / habit["goal_target"] * 100)
+    habit["period_minus_three_attainment"] = math.ceil(habit["period_minus_three_activity"]
+                                                       / habit["goal_target"] * 100)
+    habit["period_minus_four_attainment"] = math.ceil(habit["period_minus_four_activity"]
+                                                       / habit["goal_target"] * 100)
+    return habit
 
 
 @app.route('/log', methods=['POST'])
 def log_habit() -> str:
-    """Log habit entry in reverse chrono order and update habit progress.
+    """Log habit entry in reverse chrono order and update habit attainment.
+
+    Args:
+        habit_id: integer ID of habit to log (from POST).
+        date: string date of habit entry (from POST).
+        notes: optional string notes of habit entry (from POST).
 
     Returns:
         A redirect to the home page.
@@ -111,13 +143,16 @@ def log_habit() -> str:
         activity.insert(0, new_entry)
     save_activity(activity)
     flash("Activity logged successfully!", "success")
-    update_habit_activity(activity)
+    update_habits_activity(activity)
     return redirect(url_for('home'))
 
 
 @app.route('/activity')
 def show_activity_log() -> str:
-    """Display filtered activity log.
+    """Display attainment by period and filtered activity log.
+
+    Args:
+        filter: habit name to filter activity log (from GET).
 
     Returns:
         The rendered HTML of the activity log page.
@@ -135,12 +170,12 @@ def show_activity_log() -> str:
         for entry in activity
         if activity_filter == "all" or habit_map.get(entry['habit_id']) == activity_filter
     ]
-    return render_template('activity.html', activity=filtered_activity)
+    return render_template('activity.html', activity=filtered_activity, habits=habits)
 
 
 @app.route('/')
 def home() -> str:
-    """Render the home page with the list of habits.
+    """Render list of habits and attainment in most recent period.
 
     Returns:
         The rendered HTML of the home page.

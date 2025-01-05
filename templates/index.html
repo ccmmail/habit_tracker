@@ -70,8 +70,6 @@
     </script>
 </head>
 <body>
-    <h1>Welcome Chung!</h1>
-
     <h2>Log an Activity</h2>
     <form action="/log" method="POST">
         <ul>
@@ -81,8 +79,8 @@
                     <input type="radio" name="habit_id" value="{{ loop.index }}" required>
                     {{ habit.habit_name }} - {{ habit.period_minus_one_activity }} in last {{ habit.goal_period }} days |
                     <span class="{% if habit.habit_name == 'Alcohol' and habit.period_minus_one_attainment > 100 %}low-attainment
-                             {% elif habit.habit_name != 'Alcohol' and habit.period_minus_one_attainment < 100 %}low-attainment
-                             {% endif %}">
+                                {% elif habit.habit_name != 'Alcohol' and habit.period_minus_one_attainment < 100 %}low-attainment
+                                {% endif %}">
                         {{ habit.period_minus_one_attainment }}%
                     </span>
                      of goal
@@ -99,6 +97,8 @@
 
         <button type="submit">Log Activity</button>
 
+         <a href="/refresh">(Refresh goal attainment)</a>
+
         {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}
             <ul>
@@ -109,6 +109,8 @@
           {% endif %}
         {% endwith %}
     </form>
+
+   <br>
 
     <h2>Show Activities to Date</h2>
     <div class="activity-log">

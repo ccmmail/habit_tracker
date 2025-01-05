@@ -142,7 +142,7 @@ def log_habit() -> str:
     else:
         activity.insert(0, new_entry)
     save_activity(activity)
-    flash("Activity logged successfully!", "success")
+    flash("Activity logged!", "success")
     update_habits_activity(activity)
     return redirect(url_for('home'))
 
@@ -171,6 +171,19 @@ def show_activity_log() -> str:
         if activity_filter == "all" or habit_map.get(entry['habit_id']) == activity_filter
     ]
     return render_template('activity.html', activity=filtered_activity, habits=habits)
+
+
+@app.route('/refresh')
+def refresh_attainment() -> str:
+    """Refresh habit attainment for all habits.
+
+    Returns:
+        A redirect to the home page.
+    """
+    activity = load_activity()
+    update_habits_activity(activity)
+    flash("Goal attainment refreshed!", "success")
+    return redirect(url_for('home'))
 
 
 @app.route('/')

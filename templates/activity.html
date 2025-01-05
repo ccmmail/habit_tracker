@@ -4,15 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activity Log</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 8px;
+        }
+        td.notes {
+            text-align: left;
+        }
+        th.notes {
+            text-align: left;
+        }
+        .attainment-low {
+            color: red; /* Red font for attainment < 100 */
+        }
+        .attainment-alcohol-high {
+            color: red; /* Red font for "Alcohol" if attainment > 100 */
+        }
+    </style>
 </head>
+
 <body>
     <h1>Habit Summary</h1>
     <table border="1">
         <thead>
             <tr>
-                <th rowspan="2">Habit</th>
+                <th rowspan="2">Habit Name</th>
                 <th rowspan="2">Goal</th>
-                <th colspan="4">Period</th>
+                <th colspan="4">Periods</th>
             </tr>
             <tr>
                 <th>Period -1</th>
@@ -25,23 +49,52 @@
             {% for habit in habits %}
             <tr>
                 <td>{{ habit.habit_name }}</td>
-                <td> {{ habit.goal_target }} in {{ habit.goal_period }}d </td>
-                <td> {{ habit.period_minus_one_activity }} ({{ habit.period_minus_one_attainment }}%) </td>
-                <td> {{ habit.period_minus_two_activity }} ({{ habit.period_minus_two_attainment }}%) </td>
-                <td> {{ habit.period_minus_three_activity }} ({{ habit.period_minus_three_attainment }}%) </td>
-                <td> {{ habit.period_minus_four_activity }} ({{ habit.period_minus_four_attainment }}%) </td>
+                <td>{{ habit.goal_target }} in {{ habit.goal_period }} days</td>
+                <td>
+                    <span class="{{ 'attainment-alcohol-high' if habit.habit_name == 'Alcohol' and habit.period_minus_one_attainment > 100
+                                else 'attainment-low' if habit.habit_name != 'Alcohol' and habit.period_minus_one_attainment < 100
+                                else '' }}">
+                        {{ habit.period_minus_one_activity }}<br>
+                        ({{ habit.period_minus_one_attainment }}%)
+                    </span>
+                </td>
+                <td>
+                    <span class="{{ 'attainment-alcohol-high' if habit.habit_name == 'Alcohol' and habit.period_minus_two_attainment > 100
+                                else 'attainment-low' if habit.habit_name != 'Alcohol' and habit.period_minus_two_attainment < 100
+                                else '' }}">
+                        {{ habit.period_minus_two_activity }}<br>
+                        ({{ habit.period_minus_two_attainment }}%)
+                    </span>
+                </td>
+                <td>
+                    <span class="{{ 'attainment-alcohol-high' if habit.habit_name == 'Alcohol' and habit.period_minus_three_attainment > 100
+                                else 'attainment-low' if habit.habit_name != 'Alcohol' and habit.period_minus_three_attainment < 100
+                                else '' }}">
+                        {{ habit.period_minus_three_activity }}<br>
+                        ({{ habit.period_minus_three_attainment }}%)
+                    </span>
+                </td>
+                <td>
+                    <span class="{{ 'attainment-alcohol-high' if habit.habit_name == 'Alcohol' and habit.period_minus_four_attainment > 100
+                                else 'attainment-low' if habit.habit_name != 'Alcohol' and habit.period_minus_four_attainment < 100
+                                else '' }}">
+                        {{ habit.period_minus_four_activity }}<br>
+                        ({{ habit.period_minus_four_attainment }}%)
+                    </span>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     <br>
+
     <h1>Activity Log</h1>
     <table border="1">
         <thead>
             <tr>
                 <th>Date</th>
                 <th>Habit</th>
-                <th>Notes</th>
+                <th class="notes">Notes</th>
             </tr>
         </thead>
         <tbody>
@@ -49,7 +102,7 @@
             <tr>
                 <td>{{ entry.date }}</td>
                 <td>{{ entry.habit }}</td>
-                <td>{{ entry.notes }}</td>
+                <td class="notes">{{ entry.notes }}</td>
             </tr>
             {% endfor %}
         </tbody>

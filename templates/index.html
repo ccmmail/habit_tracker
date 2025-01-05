@@ -55,6 +55,9 @@
         .success {
             color: green;
         }
+        .low-attainment {
+            color: red;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -76,7 +79,13 @@
             <li>
                 <label>
                     <input type="radio" name="habit_id" value="{{ loop.index }}" required>
-                    {{ habit.habit_name }} - {{ habit.period_minus_one_activity }} in last {{ habit.goal_period }} days ({{ habit.period_minus_one_attainment }}% of {{ habit.goal_target}})
+                    {{ habit.habit_name }} - {{ habit.period_minus_one_activity }} in last {{ habit.goal_period }} days |
+                    <span class="{% if habit.habit_name == 'Alcohol' and habit.period_minus_one_attainment > 100 %}low-attainment
+                             {% elif habit.habit_name != 'Alcohol' and habit.period_minus_one_attainment < 100 %}low-attainment
+                             {% endif %}">
+                        {{ habit.period_minus_one_attainment }}%
+                    </span>
+                     of goal
                 </label>
             </li>
             {% endfor %}

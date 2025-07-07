@@ -1,16 +1,43 @@
 """Webapp to track rolling activity and attainment on custom habits."""
 
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 import json
 import os
 import math
 from datetime import datetime, timedelta
+from authlib.integrations.flask_client import OAuth
+from functools import wraps
+from dotenv import load_dotenv
+load_dotenv()
 
 HABITS_FILE: str = "habits_data.json"
 ACTIVITY_FILE: str = "activity_data.json"
+ALLOWED_EMAIL: str = "ccmmail@gmail.com"
 
+# flask app setup
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'default_dev_key')
+app.permanent_session_lifetime = timedelta(days=90)
+
+# OAuth Setup with Authlib
+oauth = OAuth(app)
+oauth.register(
+    name='google',
+    client_id=os.getenv('GOOGLE_CLIENT_ID'),
+    client_secret=os.getenv('GOOGLE_CLIENT_SECRET'),
+    server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
+    client_kwargs={'scope': 'openid email profile'},
+    api_base_url='https://openidconnect.googleapis.com/v1/'
+)
+
+def login_required(f):
+    """Decorator to ensure user is logged in with allowed email."""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'email' not in session or session['email'] != ALLOWED_EMAIL:
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 def load_habits() -> list:
@@ -117,6 +144,7 @@ def count_habit_activity(habit: dict, activity: list) -> dict:
 
 
 @app.route('/log', methods=['POST'])
+@login_required
 def log_habit() -> str:
     """Log habit entry in reverse chrono order and update habit attainment.
 
@@ -148,6 +176,7 @@ def log_habit() -> str:
 
 
 @app.route('/activity')
+@login_required
 def show_activity_log() -> str:
     """Display attainment by period and filtered activity log.
 
@@ -174,6 +203,7 @@ def show_activity_log() -> str:
 
 
 @app.route('/refresh')
+@login_required
 def refresh_attainment() -> str:
     """Refresh habit attainment for all habits.
 
@@ -186,7 +216,53 @@ def refresh_attainment() -> str:
     return redirect(url_for('home'))
 
 
+@app.route('/login')
+def login():
+    """Render login page or redirect to Google OAuth."""
+    if 'email' in session and session['email'] == ALLOWED_EMAIL:
+        return redirect(url_for('home'))
+    return render_template('login.html')
+
+
+@app.route('/authorize')
+def authorize():
+    """Start Google OAuth flow."""
+    redirect_uri = url_for('callback', _external=True)
+    return oauth.google.authorize_redirect(redirect_uri)
+
+
+@app.route('/callback')
+def callback():
+    """Handle Google OAuth callback."""
+    token = oauth.google.authorize_access_token()
+
+    if not token:
+        flash('Authentication failed', 'error')
+        return redirect(url_for('login'))
+
+    userinfo = oauth.google.get('userinfo').json()
+
+    if userinfo.get('email') == ALLOWED_EMAIL:
+        session.permanent = True
+        session['email'] = userinfo.get('email')
+        session['username'] = userinfo.get('name')
+        flash('Successfully signed in as ' + userinfo.get('name'), 'success')
+        return redirect(url_for('home'))
+    else:
+        flash('Unauthorized email address', 'error')
+        return redirect(url_for('login'))
+
+
+@app.route('/logout')
+def logout():
+    """Log user out by clearing session."""
+    session.clear()
+    flash('You have been logged out', 'success')
+    return redirect(url_for('login'))
+
+
 @app.route('/')
+@login_required
 def home() -> str:
     """Render list of habits and attainment in most recent period.
 

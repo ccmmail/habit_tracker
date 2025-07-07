@@ -26,10 +26,36 @@
         .attainment-alcohol-high {
             color: red; /* Red font for "Alcohol" if attainment > 100 */
         }
+        .user-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logout-btn {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
     </style>
 </head>
 
 <body>
+    <div class="user-info">
+        <h1>Activity Log</h1>
+        <div>
+            <span>{{ session.username }}</span>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
     <h2>Habit Summary</h2>
     <table border="1">
         <thead>

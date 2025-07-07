@@ -1,5 +1,167 @@
 [
     {
+        "progress_id": 288,
+        "habit_id": 3,
+        "date": "2025-07-07",
+        "notes": ""
+    },
+    {
+        "progress_id": 287,
+        "habit_id": 3,
+        "date": "2025-07-07",
+        "notes": ""
+    },
+    {
+        "progress_id": 286,
+        "habit_id": 1,
+        "date": "2025-07-07",
+        "notes": ""
+    },
+    {
+        "progress_id": 285,
+        "habit_id": 1,
+        "date": "2025-07-05",
+        "notes": "3m. Uvas."
+    },
+    {
+        "progress_id": 284,
+        "habit_id": 5,
+        "date": "2025-07-05",
+        "notes": "James, Lynda hike"
+    },
+    {
+        "progress_id": 283,
+        "habit_id": 6,
+        "date": "2025-07-04",
+        "notes": "Moscow mule. July 4th."
+    },
+    {
+        "progress_id": 282,
+        "habit_id": 2,
+        "date": "2025-07-03",
+        "notes": ""
+    },
+    {
+        "progress_id": 281,
+        "habit_id": 6,
+        "date": "2025-07-02",
+        "notes": "Secco"
+    },
+    {
+        "progress_id": 280,
+        "habit_id": 5,
+        "date": "2025-07-01",
+        "notes": "Jon, MNA"
+    },
+    {
+        "progress_id": 279,
+        "habit_id": 1,
+        "date": "2025-07-01",
+        "notes": "11m. Alpine."
+    },
+    {
+        "progress_id": 278,
+        "habit_id": 5,
+        "date": "2025-06-30",
+        "notes": "Achin, Shida"
+    },
+    {
+        "progress_id": 277,
+        "habit_id": 6,
+        "date": "2025-06-30",
+        "notes": "Whiskey. Neighbors."
+    },
+    {
+        "progress_id": 276,
+        "habit_id": 2,
+        "date": "2025-06-30",
+        "notes": ""
+    },
+    {
+        "progress_id": 275,
+        "habit_id": 6,
+        "date": "2025-06-29",
+        "notes": "Secco. Alissa\u2019s choice."
+    },
+    {
+        "progress_id": 274,
+        "habit_id": 1,
+        "date": "2025-06-28",
+        "notes": "7m. Almaden Quicksilver."
+    },
+    {
+        "progress_id": 273,
+        "habit_id": 1,
+        "date": "2025-06-27",
+        "notes": ""
+    },
+    {
+        "progress_id": 272,
+        "habit_id": 2,
+        "date": "2025-06-26",
+        "notes": ""
+    },
+    {
+        "progress_id": 271,
+        "habit_id": 1,
+        "date": "2025-06-24",
+        "notes": "6.5m. Fremont older."
+    },
+    {
+        "progress_id": 270,
+        "habit_id": 5,
+        "date": "2025-06-24",
+        "notes": "MNA"
+    },
+    {
+        "progress_id": 269,
+        "habit_id": 5,
+        "date": "2025-06-23",
+        "notes": "Daniel, Isabell"
+    },
+    {
+        "progress_id": 268,
+        "habit_id": 2,
+        "date": "2025-06-23",
+        "notes": ""
+    },
+    {
+        "progress_id": 267,
+        "habit_id": 5,
+        "date": "2025-06-22",
+        "notes": "Alexis grad party."
+    },
+    {
+        "progress_id": 266,
+        "habit_id": 1,
+        "date": "2025-06-22",
+        "notes": "7m. Alpine trail."
+    },
+    {
+        "progress_id": 265,
+        "habit_id": 6,
+        "date": "2025-06-22",
+        "notes": "Champagne. Alexis grad party."
+    },
+    {
+        "progress_id": 261,
+        "habit_id": 1,
+        "date": "2025-06-21",
+        "notes": ""
+    },
+    {
+        "progress_id": 264,
+        "habit_id": 5,
+        "date": "2025-06-19",
+        "notes": "Lily"
+    },
+    {
+        "progress_id": 262,
+        "habit_id": 2,
+        "date": "2025-06-18",
+        "notes": ""
+    },
+    {
         "progress_id": 260,
         "habit_id": 5,
         "date": "2025-06-18",
@@ -40,6 +202,12 @@
         "habit_id": 6,
         "date": "2025-06-15",
         "notes": "Moscow mule. Father\u2019s Day"
+    },
+    {
+        "progress_id": 263,
+        "habit_id": 2,
+        "date": "2025-06-14",
+        "notes": ""
     },
     {
         "progress_id": 253,

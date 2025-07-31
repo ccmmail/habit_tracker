@@ -1,7 +1,7 @@
-Simple webapp to track habit consistency over time 
+Webapp to track habit consistency over time. Unlike other habit trackers, goal attainment is measured over rolling activity windows (e.g., past 21 days) vs. calendar weeks / months.    
 
-- Track custom habits/goals (currently by editing JSON definition file)
+- Track custom habits/goals 
 - Log activity against habits/goals, with selectable date and optional notes
-- View activity log for all or selected habit/goal
 - View habit attainment across four rolling periods
-- Password protected access to the app
+- View activity log for all or selected habit/goal
+- Requires authentication access (via oAuth) 

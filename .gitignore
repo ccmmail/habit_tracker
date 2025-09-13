@@ -1,3 +1,5 @@
 .env*
 .idea/
 .venv
+activity_data.json
+

@@ -1,5 +1,503 @@
 [
     {
+        "progress_id": 371,
+        "habit_id": 3,
+        "date": "2025-09-12",
+        "notes": ""
+    },
+    {
+        "progress_id": 370,
+        "habit_id": 1,
+        "date": "2025-09-12",
+        "notes": "3m. Fremont older"
+    },
+    {
+        "progress_id": 369,
+        "habit_id": 3,
+        "date": "2025-09-11",
+        "notes": ""
+    },
+    {
+        "progress_id": 368,
+        "habit_id": 5,
+        "date": "2025-09-11",
+        "notes": "Gary recruiter"
+    },
+    {
+        "progress_id": 367,
+        "habit_id": 2,
+        "date": "2025-09-11",
+        "notes": ""
+    },
+    {
+        "progress_id": 366,
+        "habit_id": 1,
+        "date": "2025-09-10",
+        "notes": ""
+    },
+    {
+        "progress_id": 365,
+        "habit_id": 5,
+        "date": "2025-09-09",
+        "notes": "Karen white"
+    },
+    {
+        "progress_id": 364,
+        "habit_id": 5,
+        "date": "2025-09-08",
+        "notes": "Brian Salay"
+    },
+    {
+        "progress_id": 363,
+        "habit_id": 1,
+        "date": "2025-09-08",
+        "notes": ""
+    },
+    {
+        "progress_id": 362,
+        "habit_id": 5,
+        "date": "2025-09-07",
+        "notes": "Mom & Dad"
+    },
+    {
+        "progress_id": 361,
+        "habit_id": 2,
+        "date": "2025-09-07",
+        "notes": ""
+    },
+    {
+        "progress_id": 359,
+        "habit_id": 5,
+        "date": "2025-09-04",
+        "notes": "MNA - Ansel Adam camping."
+    },
+    {
+        "progress_id": 358,
+        "habit_id": 1,
+        "date": "2025-09-04",
+        "notes": "9.6m. Agnew Meadows."
+    },
+    {
+        "progress_id": 357,
+        "habit_id": 1,
+        "date": "2025-09-03",
+        "notes": "3m. Thousand Island"
+    },
+    {
+        "progress_id": 360,
+        "habit_id": 4,
+        "date": "2025-09-02",
+        "notes": "World War Z"
+    },
+    {
+        "progress_id": 356,
+        "habit_id": 1,
+        "date": "2025-09-02",
+        "notes": "7.8m. Garnett"
+    },
+    {
+        "progress_id": 355,
+        "habit_id": 1,
+        "date": "2025-09-01",
+        "notes": "7.6m. Ediza"
+    },
+    {
+        "progress_id": 354,
+        "habit_id": 5,
+        "date": "2025-08-30",
+        "notes": "Yoto"
+    },
+    {
+        "progress_id": 353,
+        "habit_id": 2,
+        "date": "2025-08-29",
+        "notes": ""
+    },
+    {
+        "progress_id": 352,
+        "habit_id": 1,
+        "date": "2025-08-28",
+        "notes": "3m. Fremont Older."
+    },
+    {
+        "progress_id": 351,
+        "habit_id": 5,
+        "date": "2025-08-28",
+        "notes": "Sean @ DEXA"
+    },
+    {
+        "progress_id": 350,
+        "habit_id": 2,
+        "date": "2025-08-27",
+        "notes": ""
+    },
+    {
+        "progress_id": 349,
+        "habit_id": 1,
+        "date": "2025-08-26",
+        "notes": ""
+    },
+    {
+        "progress_id": 348,
+        "habit_id": 5,
+        "date": "2025-08-23",
+        "notes": "Lily\u2019s friends - hiking alum rock"
+    },
+    {
+        "progress_id": 347,
+        "habit_id": 1,
+        "date": "2025-08-23",
+        "notes": "6.6m. Alum Rock."
+    },
+    {
+        "progress_id": 346,
+        "habit_id": 5,
+        "date": "2025-08-22",
+        "notes": "Hannah"
+    },
+    {
+        "progress_id": 345,
+        "habit_id": 2,
+        "date": "2025-08-22",
+        "notes": ""
+    },
+    {
+        "progress_id": 344,
+        "habit_id": 5,
+        "date": "2025-08-20",
+        "notes": "Panida"
+    },
+    {
+        "progress_id": 343,
+        "habit_id": 5,
+        "date": "2025-08-20",
+        "notes": "Jon"
+    },
+    {
+        "progress_id": 343,
+        "habit_id": 5,
+        "date": "2025-08-20",
+        "notes": "Mom operation"
+    },
+    {
+        "progress_id": 342,
+        "habit_id": 5,
+        "date": "2025-08-19",
+        "notes": "Alexa"
+    },
+    {
+        "progress_id": 342,
+        "habit_id": 1,
+        "date": "2025-08-19",
+        "notes": "Waterman Gap. 6.5m"
+    },
+    {
+        "progress_id": 341,
+        "habit_id": 5,
+        "date": "2025-08-18",
+        "notes": "MNA"
+    },
+    {
+        "progress_id": 340,
+        "habit_id": 1,
+        "date": "2025-08-18",
+        "notes": "Waterman Gap. 10.2m."
+    },
+    {
+        "progress_id": 339,
+        "habit_id": 5,
+        "date": "2025-08-16",
+        "notes": "Derrick & Carrie"
+    },
+    {
+        "progress_id": 338,
+        "habit_id": 5,
+        "date": "2025-08-15",
+        "notes": "Anarban"
+    },
+    {
+        "progress_id": 337,
+        "habit_id": 5,
+        "date": "2025-08-15",
+        "notes": "Sloan event"
+    },
+    {
+        "progress_id": 336,
+        "habit_id": 1,
+        "date": "2025-08-14",
+        "notes": "3m. Fremont Older."
+    },
+    {
+        "progress_id": 335,
+        "habit_id": 5,
+        "date": "2025-08-13",
+        "notes": "MNA"
+    },
+    {
+        "progress_id": 334,
+        "habit_id": 2,
+        "date": "2025-08-13",
+        "notes": ""
+    },
+    {
+        "progress_id": 333,
+        "habit_id": 1,
+        "date": "2025-08-12",
+        "notes": ""
+    },
+    {
+        "progress_id": 332,
+        "habit_id": 5,
+        "date": "2025-08-11",
+        "notes": "Jaden & Cade\u2019s bday"
+    },
+    {
+        "progress_id": 331,
+        "habit_id": 6,
+        "date": "2025-08-11",
+        "notes": "Jaden & Cade bday party"
+    },
+    {
+        "progress_id": 330,
+        "habit_id": 6,
+        "date": "2025-08-10",
+        "notes": "Jaden\u2019s fav wine"
+    },
+    {
+        "progress_id": 329,
+        "habit_id": 6,
+        "date": "2025-08-09",
+        "notes": "Secco. Alissa bday."
+    },
+    {
+        "progress_id": 328,
+        "habit_id": 5,
+        "date": "2025-08-08",
+        "notes": "Mom & Dad"
+    },
+    {
+        "progress_id": 327,
+        "habit_id": 2,
+        "date": "2025-08-07",
+        "notes": ""
+    },
+    {
+        "progress_id": 326,
+        "habit_id": 5,
+        "date": "2025-08-06",
+        "notes": "Adam Harrison"
+    },
+    {
+        "progress_id": 325,
+        "habit_id": 5,
+        "date": "2025-08-05",
+        "notes": "Tee Lea"
+    },
+    {
+        "progress_id": 324,
+        "habit_id": 5,
+        "date": "2025-08-05",
+        "notes": "MNA"
+    },
+    {
+        "progress_id": 322,
+        "habit_id": 1,
+        "date": "2025-08-05",
+        "notes": "6.3m. Fremont Older."
+    },
+    {
+        "progress_id": 323,
+        "habit_id": 6,
+        "date": "2025-08-04",
+        "notes": "Jaden Birthday"
+    },
+    {
+        "progress_id": 321,
+        "habit_id": 5,
+        "date": "2025-08-04",
+        "notes": "James, Lynda, seto"
+    },
+    {
+        "progress_id": 319,
+        "habit_id": 2,
+        "date": "2025-08-04",
+        "notes": ""
+    },
+    {
+        "progress_id": 317,
+        "habit_id": 2,
+        "date": "2025-08-01",
+        "notes": ""
+    },
+    {
+        "progress_id": 316,
+        "habit_id": 3,
+        "date": "2025-08-01",
+        "notes": ""
+    },
+    {
+        "progress_id": 315,
+        "habit_id": 2,
+        "date": "2025-07-31",
+        "notes": ""
+    },
+    {
+        "progress_id": 314,
+        "habit_id": 1,
+        "date": "2025-07-30",
+        "notes": "6m. Tafoni."
+    },
+    {
+        "progress_id": 313,
+        "habit_id": 3,
+        "date": "2025-07-29",
+        "notes": ""
+    },
+    {
+        "progress_id": 312,
+        "habit_id": 1,
+        "date": "2025-07-28",
+        "notes": ""
+    },
+    {
+        "progress_id": 311,
+        "habit_id": 1,
+        "date": "2025-07-25",
+        "notes": ""
+    },
+    {
+        "progress_id": 310,
+        "habit_id": 3,
+        "date": "2025-07-25",
+        "notes": ""
+    },
+    {
+        "progress_id": 309,
+        "habit_id": 6,
+        "date": "2025-07-24",
+        "notes": "Moscow mule. Built shoe rack."
+    },
+    {
+        "progress_id": 308,
+        "habit_id": 3,
+        "date": "2025-07-22",
+        "notes": ""
+    },
+    {
+        "progress_id": 307,
+        "habit_id": 5,
+        "date": "2025-07-22",
+        "notes": "MNA"
+    },
+    {
+        "progress_id": 306,
+        "habit_id": 1,
+        "date": "2025-07-22",
+        "notes": "6.3m. Fremont Older."
+    },
+    {
+        "progress_id": 305,
+        "habit_id": 3,
+        "date": "2025-07-22",
+        "notes": ""
+    },
+    {
+        "progress_id": 304,
+        "habit_id": 2,
+        "date": "2025-07-22",
+        "notes": ""
+    },
+    {
+        "progress_id": 303,
+        "habit_id": 3,
+        "date": "2025-07-21",
+        "notes": ""
+    },
+    {
+        "progress_id": 302,
+        "habit_id": 1,
+        "date": "2025-07-18",
+        "notes": ""
+    },
+    {
+        "progress_id": 301,
+        "habit_id": 3,
+        "date": "2025-07-17",
+        "notes": ""
+    },
+    {
+        "progress_id": 300,
+        "habit_id": 2,
+        "date": "2025-07-17",
+        "notes": ""
+    },
+    {
+        "progress_id": 299,
+        "habit_id": 4,
+        "date": "2025-07-16",
+        "notes": "Whiter shade of Pale"
+    },
+    {
+        "progress_id": 298,
+        "habit_id": 5,
+        "date": "2025-07-16",
+        "notes": "MNA"
+    },
+    {
+        "progress_id": 297,
+        "habit_id": 1,
+        "date": "2025-07-16",
+        "notes": "8.5m. Russian Ridge."
+    },
+    {
+        "progress_id": 296,
+        "habit_id": 2,
+        "date": "2025-07-15",
+        "notes": ""
+    },
+    {
+        "progress_id": 295,
+        "habit_id": 5,
+        "date": "2025-07-13",
+        "notes": "Alissa, Hannah, Sophie"
+    },
+    {
+        "progress_id": 294,
+        "habit_id": 2,
+        "date": "2025-07-13",
+        "notes": ""
+    },
+    {
+        "progress_id": 293,
+        "habit_id": 1,
+        "date": "2025-07-10",
+        "notes": "4.5m.  Los Altos."
+    },
+    {
+        "progress_id": 292,
+        "habit_id": 1,
+        "date": "2025-07-10",
+        "notes": ""
+    },
+    {
+        "progress_id": 291,
+        "habit_id": 5,
+        "date": "2025-07-09",
+        "notes": "Mom, Dad."
+    },
+    {
+        "progress_id": 290,
+        "habit_id": 4,
+        "date": "2025-07-08",
+        "notes": "Death of a salesman"
+    },
+    {
+        "progress_id": 289,
+        "habit_id": 2,
+        "date": "2025-07-08",
+        "notes": ""
+    },
+    {
         "progress_id": 288,
         "habit_id": 3,
         "date": "2025-07-07",

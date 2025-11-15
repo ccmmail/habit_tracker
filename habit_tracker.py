@@ -92,6 +92,15 @@ def update_habits_activity(activity: list) -> None:
     save_habits(habits)
 
 
+def get_last_update_date() -> str:
+    """Return the formatted date the habits file was last modified."""
+    try:
+        timestamp = os.path.getmtime(HABITS_FILE)
+    except FileNotFoundError:
+        return "Unknown"
+    return datetime.fromtimestamp(timestamp).strftime("%B %d, %Y")
+
+
 def count_habit_activity(habit: dict, activity: list) -> dict:
     """Count activity and goal attainment of given habit within time period.
 
@@ -270,7 +279,8 @@ def home() -> str:
         The rendered HTML of the home page.
     """
     habits = load_habits()
-    return render_template('index.html', habits=habits)
+    last_update = get_last_update_date()
+    return render_template('index.html', habits=habits, last_update=last_update)
 
 
 if __name__ == "__main__":

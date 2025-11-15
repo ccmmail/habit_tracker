@@ -76,6 +76,11 @@
         .logout-btn:hover {
             background-color: #c82333;
         }
+        .last-update {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -95,6 +100,8 @@
             <a href="/logout" class="logout-btn">Logout</a>
         </div>
     </div>
+
+    <p class="last-update">Last updated: {{ last_update }}</p>
 
     <h2>Log an Activity</h2>
     <form action="/log" method="POST">

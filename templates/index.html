@@ -99,9 +99,10 @@
 <!--            <span>{{ session.username }}</span>-->
             <a href="/logout" class="logout-btn">Logout</a>
         </div>
+    <br>
+    <class="last-update">Last updated: {{ last_update }}>
     </div>
 
-    <p class="last-update">Last updated: {{ last_update }}</p>
 
     <h2>Log an Activity</h2>
     <form action="/log" method="POST">

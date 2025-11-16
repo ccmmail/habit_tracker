@@ -12,11 +12,14 @@ load_dotenv()
 
 HABITS_FILE: str = "habits_data.json"
 ACTIVITY_FILE: str = "activity_data.json"
-ALLOWED_EMAIL: str = "ccmmail@gmail.com"
+ALLOWED_EMAIL: str = os.getenv("ALLOWED_EMAIL", "")
 
 # flask app setup
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', 'default_dev_key')
+secret_key = os.getenv('SECRET_KEY')
+if not secret_key:
+    raise RuntimeError("SECRET_KEY environment variable is required")
+app.secret_key = secret_key
 app.permanent_session_lifetime = timedelta(days=90)
 
 # OAuth Setup with Authlib
@@ -198,7 +201,7 @@ def show_activity_log() -> str:
     habits = load_habits()
     activity = load_activity()
     habit_map = {habit['habit_id']: habit['habit_name'] for habit in habits}
-    activity_filter = request.args["filter"]
+    activity_filter = request.args.get("filter", "all")
     filtered_activity = [
         {
             "date": entry['date'],
